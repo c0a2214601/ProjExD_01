@@ -18,10 +18,9 @@ def main():
             if event.type == pg.QUIT: return
 
         tmr += 1
-        if tmr == 1599:
-            tmr = 0
-        screen.blit(bg_img, [-tmr, 0])
-        screen.blit(pg.transform.flip(bg_img, True, False), [1600 - tmr, 0])
+        x = tmr % 1600
+        screen.blit(bg_img, [-x, 0])
+        screen.blit(pg.transform.flip(bg_img, True, False), [1600 - x, 0])
         screen.blit(kk_imgs[tmr%10], [300, 200])
 
         pg.display.update()
